@@ -11,12 +11,12 @@ def read(fname):
 
 NAME = "yali_server"
 PACKAGES = ['cgi-bin']
-DESCRIPTION = "this is for log record"
-LONG_DESCRIPTION = "this is for log record"
+DESCRIPTION = "this is for log record for ios or android"
+LONG_DESCRIPTION = "this is for log record for ios or android,有问题可以联系我，温亚莉"
 KEYWORDS = "keyword"
 AUTHOR = "wenyali"
 AUTHOR_EMAIL = "2917073217@qq.com"
-URL = "https://github.com/lichanghong/wenyali.git"
+URL = "git@github.com:wenyali/yali_server.git"
 VERSION = "1.0"
 LICENSE = "MIT"
 setup(
