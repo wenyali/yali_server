@@ -9,15 +9,15 @@ except:
 def read(fname):
     return codecs.open(os.path.join(os.path.dirname(__file__), fname)).read()
 
-NAME = "yali_server"
-PACKAGES = ['cgi_bin']
+NAME = "yali-server"
+PACKAGES = ['cgi-bin']
 DESCRIPTION = "this is for log record for ios or android"
 LONG_DESCRIPTION = "this is for log record for ios or android,有问题可以联系我，温亚莉"
 KEYWORDS = "keyword"
 AUTHOR = "wenyali"
 AUTHOR_EMAIL = "2917073217@qq.com"
 URL = "https://github.com/wenyali/yali_server.git"
-VERSION = "1.4"
+VERSION = "1.4.1"
 LICENSE = "MIT"
 setup(
       name =NAME,version = VERSION,
@@ -33,7 +33,7 @@ setup(
       packages = PACKAGES,include_package_data=True,zip_safe=True,
       entry_points={
       "console_scripts": [
-                          "yali_server = cgi_bin.log_record:index",
+                          "yali_server = log_record:index",
                           ]
       },
       

@@ -1,7 +1,7 @@
 README.txt
 setup.py
-cgi_bin/__init__.py
-cgi_bin/log_record.py
+cgi-bin/__init__.py
+cgi-bin/log_record.py
 yali_server.egg-info/PKG-INFO
 yali_server.egg-info/SOURCES.txt
 yali_server.egg-info/dependency_links.txt
