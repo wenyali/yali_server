@@ -29,7 +29,7 @@ def start_server_with_port(port):
         call(["python","-m","CGIHTTPServer",port])
 
 
-def main():
+def index():
     args = argv
     if (len(args) == 3) and (args[1] == "-port") and (args[2].isdigit()):
         call("echo '\033[32m 服务开启.... \033[0m'",shell=True)

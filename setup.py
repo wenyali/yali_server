@@ -16,7 +16,7 @@ LONG_DESCRIPTION = "this is for log record for ios or android,有问题可以联
 KEYWORDS = "keyword"
 AUTHOR = "wenyali"
 AUTHOR_EMAIL = "2917073217@qq.com"
-URL = "git@github.com:wenyali/yali_server.git"
+URL = "https://github.com/wenyali/yali_server.git"
 VERSION = "1.0"
 LICENSE = "MIT"
 setup(
@@ -33,7 +33,7 @@ setup(
       packages = PACKAGES,include_package_data=True,zip_safe=True,
       entry_points={
       "console_scripts": [
-                          "yali_server = cgi-bin.log_record:main",
+                          "yali_server = log_record:index",
                           ]
       },
       
