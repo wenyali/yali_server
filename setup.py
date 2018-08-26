@@ -10,14 +10,14 @@ def read(fname):
     return codecs.open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 NAME = "yali_server"
-PACKAGES = ['cgi-bin']
+PACKAGES = ['cgi_bin']
 DESCRIPTION = "this is for log record for ios or android"
 LONG_DESCRIPTION = "this is for log record for ios or android,有问题可以联系我，温亚莉"
 KEYWORDS = "keyword"
 AUTHOR = "wenyali"
 AUTHOR_EMAIL = "2917073217@qq.com"
 URL = "https://github.com/wenyali/yali_server.git"
-VERSION = "1.2"
+VERSION = "1.4"
 LICENSE = "MIT"
 setup(
       name =NAME,version = VERSION,

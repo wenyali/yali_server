@@ -1,1 +1,1 @@
-cgi-bin
+cgi_bin
