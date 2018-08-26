@@ -17,7 +17,7 @@ KEYWORDS = "keyword"
 AUTHOR = "wenyali"
 AUTHOR_EMAIL = "2917073217@qq.com"
 URL = "https://github.com/wenyali/yali_server.git"
-VERSION = "1.1"
+VERSION = "1.2"
 LICENSE = "MIT"
 setup(
       name =NAME,version = VERSION,
@@ -33,7 +33,7 @@ setup(
       packages = PACKAGES,include_package_data=True,zip_safe=True,
       entry_points={
       "console_scripts": [
-                          "yali_server = cgi_bin:log_record",
+                          "yali_server = cgi_bin.log_record:index",
                           ]
       },
       

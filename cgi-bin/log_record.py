@@ -50,5 +50,4 @@ def index():
     print(log_text)
     with open(time.strftime("%Y-%m-%d",time.localtime(time.time()))+".txt","a+") as f:
         f.write(log_text+"\n")
-index()
 
