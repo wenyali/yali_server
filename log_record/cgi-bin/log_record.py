@@ -59,10 +59,8 @@ def index():
     else:
         log_text = "---------terminal error----------"
 
-    current_path=check_output("pwd",shell=True)
-    current_path = current_path.decode().split("\n")[0]
+    file_name= os.getcwd()+"/"+time.strftime("%Y-%m-%d",time.localtime(time.time()))+".txt"
 
-    file_name= current_path+"/"+time.strftime("%Y-%m-%d",time.localtime(time.time()))+".txt"
     try:
         with open(file_name,"a+") as f:
             f.write(log_text+"\n")

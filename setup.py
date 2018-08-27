@@ -10,7 +10,8 @@ def read(fname):
     return codecs.open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 NAME = "yali_server"
-PACKAGES = ['log_record']
+PACKAGES = ['log_record'
+            ]
 DESCRIPTION = "this is for log record for ios or android"
 LONG_DESCRIPTION = "this is for log record for ios or android,有问题可以联系我，温亚莉"
 KEYWORDS = "keyword"
@@ -33,7 +34,7 @@ setup(
       packages = PACKAGES,include_package_data=True,zip_safe=True,
       entry_points={
       "console_scripts": [
-                          "yali_server = log_record.cgi-bin.log_record:index",
+                          "yali_server = log_record.cgi_bin.log_record:index",
                           ]
       },
       
