@@ -1,3 +1,0 @@
-[console_scripts]
-yali_server = log_record:index
-

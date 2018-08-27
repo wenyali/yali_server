@@ -12,22 +12,20 @@ from sys import argv
 
 def kill_process_by_name(name):
     cmd = "ps -e | grep %s" % name
+    #print(cmd)
     f = os.popen(cmd)
     txt = f.readlines()
+    #print(txt)
     if len(txt) == 0:
-        print ("no process \"%s\"!!" % name)
-        return
+        pass
     else:
         for line in txt:
             colum = line.split()
             pid = colum[0]
-            cmd = "kill -9 %d" % int(pid)
-            rc = os.system(cmd)
-            if rc == 0 :
-                print ("exec \"%s\" success!!" % cmd)
-            else:
-                print ("exec \"%s\" failed!!" % cmd)
-                return
+            print(pid)
+            cmd2 = "kill -9 %d" % int(pid)
+            call(cmd2,shell=True)
+
 def is_python3():
     return sys.version > '3'
     
@@ -36,7 +34,7 @@ def start_server_with_port(port):
 #        kill_process_by_name("Python")
 #    except:
 #        call("echo '\033[31m service open failed \033[0m'",shell=True)
-#        pass
+
     if is_python3():
         call(["python3","-m","http.server","--cgi",port])
     else:
