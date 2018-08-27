@@ -1,0 +1,3 @@
+[console_scripts]
+yali_server = log_record.cgi_bin.log_record:index
+
