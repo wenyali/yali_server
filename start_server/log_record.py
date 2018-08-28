@@ -3,6 +3,7 @@
 # CGI处理模块
 import cgi
 import shutil
+import site;
 
 # 引入时间模块
 import time
@@ -48,8 +49,8 @@ def index():
         call("echo '\033[32m 服务开启.... \033[0m'",shell=True)
         start_server_with_port(args[2])
     elif (len(args) == 2) and (args[1] == "init"):
-        olddir = "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/cgi-bin"
-        newdir = os.getcwd()+"/cgi-bin2"
+        olddir = site.getsitepackages() + "/cgi-bin"
+        newdir = os.getcwd()+"/cgi-bin"
         shutil.copytree(olddir,newdir,False)
         call("chmod 777 %s" % newdir+"/log_record.py",shell=True)
     else:

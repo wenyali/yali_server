@@ -17,7 +17,7 @@ KEYWORDS = "keyword"
 AUTHOR = "wenyali"
 AUTHOR_EMAIL = "2917073217@qq.com"
 URL = "https://github.com/wenyali/yali_server.git"
-VERSION = "1.5"
+VERSION = "1.5.1"
 LICENSE = "MIT"
 setup(
       name =NAME,version = VERSION,
