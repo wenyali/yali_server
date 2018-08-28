@@ -46,7 +46,7 @@ def index():
     if (len(args) == 3) and (args[1] == "-port") and (args[2].isdigit()):
         call("echo '\033[32m 服务开启.... \033[0m'",shell=True)
         start_server_with_port(args[2])
-    elif (len(args) == 1) and (args[1] == "init"):
+    elif (len(args) == 2) and (args[1] == "init"):
         olddir = "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/cgi-bin"
         newdir = os.getcwd()+"/cgi-bin"
         shutil.copytree(olddir,newdir,True)
