@@ -46,8 +46,14 @@ def index():
     if (len(args) == 3) and (args[1] == "-port") and (args[2].isdigit()):
         call("echo '\033[32m 服务开启.... \033[0m'",shell=True)
         start_server_with_port(args[2])
+    elif (len(args) == 1) and (args[1] == "init"):
+        olddir = "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/cgi-bin"
+        newdir = os.getcwd()+"/cgi-bin"
+        shutil.copytree(olddir,newdir,True)
     else:
-        call("echo '\033[31m usage error\n usage example:\n yaliserver -port 8800 \033[0m'",shell=True)
+        call("echo '\033[31m usage error\t usage example:\t yali_server -port 8800 开启服务 \n \033[0m'",shell=True)
+        call("echo '\033[31m usage error\t usage example:\t yali_server init 初始化cgi环境 \n \033[0m'",shell=True)
+
 
 
 
