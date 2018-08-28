@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: UTF-8 -*-
 # CGI处理模块
-import cgi 
+import cgi
+import shutil
 
 # 引入时间模块
 import time
