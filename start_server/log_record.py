@@ -49,7 +49,7 @@ def index():
         call("echo '\033[32m 服务开启.... \033[0m'",shell=True)
         start_server_with_port(args[2])
     elif (len(args) == 2) and (args[1] == "init"):
-        olddir = site.getsitepackages() + "/cgi-bin"
+        olddir = site.getsitepackages()[0] + "/cgi-bin"
         newdir = os.getcwd()+"/cgi-bin"
         shutil.copytree(olddir,newdir,False)
         call("chmod 777 %s" % newdir+"/log_record.py",shell=True)
