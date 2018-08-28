@@ -59,7 +59,7 @@ def index():
     else:
         log_text = "---------terminal error----------"
 
-    file_name= os.getcwd()+"/cgi-bin"+time.strftime("%Y-%m-%d",time.localtime(time.time()))+".txt"
+    file_name= os.getcwd()+"/cgi-bin/"+time.strftime("%Y-%m-%d",time.localtime(time.time()))+".txt"
 
     try:
         with open(file_name,"a+") as f:

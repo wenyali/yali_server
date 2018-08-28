@@ -49,12 +49,12 @@ def index():
         start_server_with_port(args[2])
     elif (len(args) == 2) and (args[1] == "init"):
         olddir = "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/cgi-bin"
-        newdir = os.getcwd()+"/cgi-bin"
-        shutil.copytree(olddir,newdir,True)
+        newdir = os.getcwd()+"/cgi-bin2"
+        shutil.copytree(olddir,newdir,False)
+        call("chmod 777 %s" % newdir+"/log_record.py",shell=True)
     else:
         call("echo '\033[31m usage error\t usage example:\t yali_server -port 8800 开启服务 \n \033[0m'",shell=True)
         call("echo '\033[31m usage error\t usage example:\t yali_server init 初始化cgi环境 \n \033[0m'",shell=True)
-
 
 
 
