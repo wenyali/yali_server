@@ -1,3 +1,4 @@
+# coding:utf-8
 import codecs
 import os
 import sys
@@ -17,7 +18,7 @@ KEYWORDS = "keyword"
 AUTHOR = "wenyali"
 AUTHOR_EMAIL = "2917073217@qq.com"
 URL = "https://github.com/wenyali/yali_server.git"
-VERSION = "1.5.7"
+VERSION = "1.5.8"
 LICENSE = "MIT"
 setup(
       name =NAME,version = VERSION,
