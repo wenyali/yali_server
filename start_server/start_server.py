@@ -57,12 +57,16 @@ def start_server_with_port(port):
 
 def index():
     args = argv
+    olddir = site.getsitepackages()[0] + "/cgi-bin"
+    newdir = os.getcwd()+"/cgi-bin"
     if (len(args) == 3) and (args[1] == "-port") and (args[2].isdigit()):
         print("\033[32m service has opening.... \033[0m")
-        start_server_with_port(args[2])
+        if os.path.exists(newdir):
+            start_server_with_port(args[2])
+        else:
+            print("\033[31m 请先使用 yali_server init 初始化cgi环境  \n \033[0m")
+
     elif (len(args) == 2) and (args[1].lower() == "init"):
-        olddir = site.getsitepackages()[0] + "/cgi-bin"
-        newdir = os.getcwd()+"/cgi-bin"
         try:
             shutil.copytree(olddir,newdir,False)
             call("chmod 777 %s" % newdir+"/log_record.py",shell=True)
