@@ -76,7 +76,6 @@ def index():
     else:
         print("\033[32m  yali_server help 查看用法 \n \033[0m")
 
-index()
 
 
 
