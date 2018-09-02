@@ -76,6 +76,7 @@ def index():
         try:
             shutil.copytree(cgi_dir,newdir,False)
             call("chmod 777 %s" % newdir+"/log_record.py",shell=True)
+            call("chmod -R 777 %s" % newdir,shell=True)
             print("\033[32m  初始化 cgi 环境完成 \n \033[0m")
         except:
             print("\033[31m  本地有同名文件夹 cgi-bin 需删除或者已经完成初始化 \n \033[0m")
