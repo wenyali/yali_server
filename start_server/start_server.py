@@ -1,6 +1,7 @@
+# -*- coding: UTF-8 -*-
 #!/usr/bin/env python
 #!/usr/bin/env python3
-# -*- coding: UTF-8 -*-
+
 # CGI处理模块
 import cgi
 import shutil
@@ -40,10 +41,6 @@ def kill_process_by_shell(port):
 
     
 def start_server_with_port(port):
-#    try:
-#        kill_process_by_name("Python")
-#    except:
-#        print("\033[31m service open failed \033[0m")
     try:
         kill_process_by_shell(port)
     except Exception as err:
@@ -57,10 +54,16 @@ def start_server_with_port(port):
     except:
         print("\033[31m service open failed \033[0m")
 
+def find_cgi():
+    pcg_dir = site.getsitepackages()
+    for dir_name in pcg_dir:
+        cgi_dir = dir_name+"/cgi-bin"
+        if os.path.exists(cgi_dir):
+            return cgi_dir
 
 def index():
     args = argv
-    olddir = site.getsitepackages()[0] + "/cgi-bin"
+    cgi_dir = find_cgi()
     newdir = os.getcwd()+"/cgi-bin"
     if (len(args) == 3) and (args[1] == "-port") and (args[2].isdigit()):
         if os.path.exists(newdir):
@@ -71,10 +74,10 @@ def index():
 
     elif (len(args) == 2) and (args[1].lower() == "init"):
         try:
-            shutil.copytree(olddir,newdir,False)
+            shutil.copytree(cgi_dir,newdir,False)
             call("chmod 777 %s" % newdir+"/log_record.py",shell=True)
             print("\033[32m  初始化 cgi 环境完成 \n \033[0m")
-        except FileExistsError:
+        except:
             print("\033[31m  本地有同名文件夹 cgi-bin 需删除或者已经完成初始化 \n \033[0m")
     
     elif (len(args) == 2) and (args[1].lower() == "help" or args[1] == "-h") or (len(args) == 1):
@@ -82,10 +85,6 @@ def index():
         print("\033[32m  yali_server -port 8800 开启服务 \n \033[0m")
     else:
         print("\033[32m  yali_server help 查看用法 \n \033[0m")
-
-
-
-
 
 
 
