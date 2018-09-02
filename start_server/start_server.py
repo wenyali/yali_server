@@ -35,7 +35,7 @@ def kill_process_by_shell(port):
         cmd = "lsof -i:"+port+""" | awk '$1=="Python" {print $2}' | xargs kill -9"""
         call(cmd,shell=True)
     except:
-        print("\033[31m not kill python \033[0m")
+        raise Exception("Do not kill Python process")
 
     
 def start_server_with_port(port):
@@ -43,9 +43,11 @@ def start_server_with_port(port):
 #        kill_process_by_name("Python")
 #    except:
 #        print("\033[31m service open failed \033[0m")
+    try:
+        kill_process_by_shell(port)
+    except Exception as err:
+        print("\033[31m "+str(err)+"\033[0m")
 
-    kill_process_by_shell(port)
-    
     try:
         if is_python3():
             call(["python3","-m","http.server","--cgi",port])
@@ -60,9 +62,9 @@ def index():
     olddir = site.getsitepackages()[0] + "/cgi-bin"
     newdir = os.getcwd()+"/cgi-bin"
     if (len(args) == 3) and (args[1] == "-port") and (args[2].isdigit()):
-        print("\033[32m service has opening.... \033[0m")
         if os.path.exists(newdir):
             start_server_with_port(args[2])
+            print("\033[32m service has opening.... \033[0m")
         else:
             print("\033[31m 请先使用 yali_server init 初始化cgi环境  \n \033[0m")
 
@@ -79,8 +81,6 @@ def index():
         print("\033[32m  yali_server -port 8800 开启服务 \n \033[0m")
     else:
         print("\033[32m  yali_server help 查看用法 \n \033[0m")
-
-
 
 
 
